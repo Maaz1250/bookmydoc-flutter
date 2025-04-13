@@ -1,0 +1,2 @@
+D:/Mazz_Updated/myapplication/android/app/.cxx/RelWithDebInfo/c6c1k3m1/x86/CMakeFiles/edit_cache.dir
+D:/Mazz_Updated/myapplication/android/app/.cxx/RelWithDebInfo/c6c1k3m1/x86/CMakeFiles/rebuild_cache.dir

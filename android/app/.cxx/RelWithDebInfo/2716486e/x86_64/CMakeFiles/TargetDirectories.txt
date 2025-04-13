@@ -1,0 +1,2 @@
+D:/BookMyDoc/myapplication/android/app/.cxx/RelWithDebInfo/2716486e/x86_64/CMakeFiles/edit_cache.dir
+D:/BookMyDoc/myapplication/android/app/.cxx/RelWithDebInfo/2716486e/x86_64/CMakeFiles/rebuild_cache.dir

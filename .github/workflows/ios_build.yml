@@ -1,30 +1,30 @@
 name: Build iOS App
 
-on:
-  workflow_dispatch: # Allows manual triggering
+# allow manual trigger
+on: workflow_dispatch
+
+# <— add this!
+permissions:
+  contents: read     # for checkout, pub get, build…
+  actions: read      # <<< give permission to download/upload artifact actions
 
 jobs:
   build-ios:
-    name: Build Flutter iOS
     runs-on: macos-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.29.0'
 
-      - name: Run Flutter Doctor
-        run: flutter doctor -v
+      - run: flutter doctor -v
 
-      - name: Install dependencies
-        run: flutter pub get
+      - run: flutter pub get
 
-      - name: Build iOS app (debug)
-        run: flutter build ios --debug
+      - run: flutter build ios --debug
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3

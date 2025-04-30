@@ -1,33 +1,35 @@
 name: Build iOS App
+on:
+  workflow_dispatch:
 
-# allow manual trigger
-on: workflow_dispatch
-
-# <— add this!
 permissions:
-  contents: read     # for checkout, pub get, build…
-  actions: read      # <<< give permission to download/upload artifact actions
+  contents: read     # for checkout & reading your code
+  actions: read      # to download/upload artifacts
 
 jobs:
   build-ios:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.29.0'
+          flutter-version: 3.29.0
 
-      - run: flutter doctor -v
+      - name: Flutter doctor
+        run: flutter doctor -v
 
-      - run: flutter pub get
+      - name: Get dependencies
+        run: flutter pub get
 
-      - run: flutter build ios --debug
+      - name: Build iOS (debug)
+        run: flutter build ios --debug
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3   # or @v2 if v3 really doesn’t exist in your GHE
         with:
           name: ios-debug-build
           path: build/ios/iphoneos/Runner.app

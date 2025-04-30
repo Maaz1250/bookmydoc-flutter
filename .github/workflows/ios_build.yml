@@ -29,7 +29,7 @@ jobs:
         run: flutter build ios --debug
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3   # or @v2 if v3 really doesn’t exist in your GHE
+        uses: actions/upload-artifact@v2   # or @v2 if v3 really doesn’t exist in your GHE
         with:
           name: ios-debug-build
           path: build/ios/iphoneos/Runner.app
